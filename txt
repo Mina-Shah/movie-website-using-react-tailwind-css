@@ -1,0 +1,8 @@
+black
+white 
+green
+
+
+hero section
+trending now
+footer
