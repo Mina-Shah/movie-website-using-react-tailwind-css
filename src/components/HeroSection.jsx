@@ -2,7 +2,7 @@ const HeroSection = () => {
   return (
     <div className="relative flex justify-center items-center h-screen bg-black">
       <img 
-        src="src/assets/f.jpg" 
+        src="src/assets/bg.jpg" 
         className="absolute inset-0 w-full h-full object-cover opacity-35" 
         alt="Background" 
       />
