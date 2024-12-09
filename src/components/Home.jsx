@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Search } from "lucide-react";
-import debounce from "lodash.debounce";
 
 const HeroSection = () => {
   const [query, setQuery] = useState(""); // State for input query
@@ -26,7 +25,7 @@ const HeroSection = () => {
     <>
       <div className="relative flex justify-center items-center h-screen bg-black">
         <img
-          src="/src/assets/bg.jpg"
+          src="/bg.jpg"
           className="absolute inset-0 w-full h-full object-cover opacity-35"
           alt="Background"
         />
