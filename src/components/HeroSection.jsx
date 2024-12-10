@@ -17,7 +17,7 @@ const HeroSection = () => {
   useEffect(() => {
     let timeOut = setTimeout(() => {
       getMovies(`${query}`);
-    }, 1000);
+    }, 500);
     return () => clearTimeout(timeOut);
   }, [query]);
 
@@ -50,8 +50,12 @@ const HeroSection = () => {
         {movies.length > 0 && (
           <div className="absolute text-white bg-zinc-900 mt-80 ml-3 p-4 text-xs w-60 md:w-80 md:ml-3 lg:mt-80 lg:w-96 lg:text-sm rounded shadow-lg overflow-y-auto max-h-60">
             {movies.map((movie) => (
-              <div key={movie.id} className="py-2 border-b">
-                <p>{movie.title}</p>
+              <div key={movie.id} className="py-2">
+                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} 
+                className="h-10 w-8 rounded"
+                />
+                <p className="ml-12 -mt-10 ">{movie.title}</p>
+                <p className="ml-12 mt-1 text-xs text-gray-500">Release Date: {movie.release_date}</p>
               </div>
             ))}
           </div>

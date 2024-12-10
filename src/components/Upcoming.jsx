@@ -19,7 +19,7 @@ function Upcoming() {
   
     return (
       <section>
-        <h1 className="text-center mt-6 font-semibold text-lime-600 text-2xl md:text-4xl md:mt-8 lg:text-5xl lg:mt-20">
+        <h1 className="text-center mt-6 font-semibold text-lime-600 text-2xl md:text-4xl md:mt-8 lg:text-5xl lg:mt-10">
           Upcoming
         </h1>
         <div className="">

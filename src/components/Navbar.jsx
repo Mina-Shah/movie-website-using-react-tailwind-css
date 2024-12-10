@@ -1,34 +1,85 @@
 import { Eye } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { useState} from "react";
+import { Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 const Navbar = () => {
+  const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
+
+  const toggleNavbar = () => {
+    setMobileDrawerOpen(!mobileDrawerOpen);
+  };
+
   return (
-    <nav className="h-14 bg-gradient-to-r from-lime-950 to-lime-500 flex justify-between items-center px-4">
-      <div className="flex items-center space-x-2">
-        <p className="font-bold text-2xl text-white md:ml-10 lg:ml-20 lg:text-3xl">Watch</p>
-        <Eye className="text-white" />
-      </div>
-       
-       <div>
-        <ul className="hidden md:flex md:gap-6 md:text-sm lg:flex lg:gap-9 lg:text-xl">
+    <>
+      <nav className="h-14 bg-gradient-to-r from-lime-950 to-lime-500 flex justify-between items-center px-4">
+        <div className="flex items-center space-x-2">
+          <p className="font-bold text-2xl text-white md:ml-20 lg:ml-20 lg:text-3xl">
+            Watch
+          </p>
+          <Eye className="text-white" />
+        </div>
+
+        <div>
+          <div className="lg:hidden ml-48 md:ml-96 ">
+            <button onClick={toggleNavbar}>
+              {mobileDrawerOpen ? <X /> : <Menu />}
+            </button>
+          </div>
+          {mobileDrawerOpen && (
+            <div className="lg:hidden fixed right-0 z-20 bg-zinc-900 w-full p-6 flex flex-col justify-center items-center ">
+              <ul className=" space-y-2 text-white ">
+                <li className=" hover:text-lime-400">
+                  <Link to="/herosection">Home</Link>
+                </li>
+                <li className="hover:text-lime-400">
+                  <Link to="/movies">Movies</Link>
+                </li>
+                <li className=" hover:text-lime-400">
+                  <Link to="/toprated">Top Rated</Link>
+                </li>
+                <li className=" hover:text-lime-400">
+                  <Link to="/popular">Popular</Link>
+                </li>
+                <li className="hover:text-lime-400">
+                  <Link to="/upcoming">Upcoming</Link>
+                </li>
+              </ul>
+            </div>
+          )}
+        </div>
+     
+       <div className=""> 
+       <ul className="hidden lg:justify-center lg:items-center lg:flex lg:gap-9 lg:text-xl">
         <li className="lg:hover:underline">
-            <a href="#">Movies</a>
+          <Link to="/herosection" >Home</Link>
+            </li>
+        <li className="lg:hover:underline">
+          <Link to="/movies" >Movies</Link>
             </li>
           <li className="lg:hover:underline">
-            <a href="#">Top Rated</a>
+            <Link to="/toprated">Top Rated</Link>
             </li>
             <li className="lg:hover:underline">
-            <a href="#">Popular</a>
+            <Link to="/popular">Popular</Link>
             </li>
             <li className="lg:hover:underline">
-            <a href="#">Upcoming</a>
+            <Link to="/upcoming">Upcoming</Link>
             </li>
         </ul>
        </div>
 
-      <div className="text-xl md:mr-10 lg:text-2xl lg:mr-20 text-white">
-        <a href="#" className="hover:text-lime-300 transition-colors duration-300">Sign In</a>
-      </div>
-    </nav>
+       <div className="hidden lg:flex lg:mr-10 items-center">
+  <button className="text-lg text-white border-2 border-lime-300 rounded px-3 py-1 hover:text-lime-600 hover:bg-white transition-all duration-300">
+    Sign In
+  </button>
+</div>
+
+      
+      </nav>
+      <Outlet />
+    </>
   );
 };
 
