@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar"
-import HeroSection from "./components/HeroSection"
+import Home from "./components/Home"
 import TopRated from "./components/TopRated"
 import Footer from "./components/Footer"
 import Popular from "./components/Popular"
 import Upcoming from "./components/Upcoming"
 import Movies from "./components/Movies"
 import NoPage from "./components/NoPage";
-import { Home } from "lucide-react";
+
 
 export default function App() {
   return (
