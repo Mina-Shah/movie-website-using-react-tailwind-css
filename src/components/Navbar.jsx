@@ -53,7 +53,7 @@ const Navbar = () => {
        <div className=""> 
        <ul className="hidden lg:justify-center lg:items-center lg:flex lg:gap-9 lg:text-xl">
         <li className="lg:hover:underline">
-          <Link to="/herosection" >Home</Link>
+          <Link to="/home" >Home</Link>
             </li>
         <li className="lg:hover:underline">
           <Link to="/movies" >Movies</Link>
