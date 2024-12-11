@@ -31,7 +31,7 @@ const Navbar = () => {
             <div className="lg:hidden fixed right-0 z-20 bg-zinc-900 w-full p-6 flex flex-col justify-center items-center ">
               <ul className=" space-y-2 text-white ">
                 <li className=" hover:text-lime-400">
-                  <Link to="/herosection">Home</Link>
+                  <Link to="/home">Home</Link>
                 </li>
                 <li className="hover:text-lime-400">
                   <Link to="/movies">Movies</Link>
