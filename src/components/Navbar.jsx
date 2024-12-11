@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 
 const Navbar = () => {
-  const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleNavbar = () => {
-    setMobileDrawerOpen(!mobileDrawerOpen);
+    setMenuOpen(!menuOpen);
   };
 
   return (
@@ -22,12 +22,12 @@ const Navbar = () => {
         </div>
 
         <div>
-          <div className="lg:hidden ml-48 md:ml-96 ">
+          <div className="lg:hidden ml-48 md:ml-96  ">
             <button onClick={toggleNavbar}>
-              {mobileDrawerOpen ? <X /> : <Menu />}
+            {menuOpen ? <X /> : <Menu size={28}/>}
             </button>
           </div>
-          {mobileDrawerOpen && (
+          {menuOpen && (
             <div className="lg:hidden fixed right-0 z-20 bg-zinc-900 w-full p-6 flex flex-col justify-center items-center ">
               <ul className=" space-y-2 text-white ">
                 <li className=" hover:text-lime-400">
