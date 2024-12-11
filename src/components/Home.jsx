@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Search } from "lucide-react";
 
-const HeroSection = () => {
+const Home = () => {
   const [query, setQuery] = useState(""); // State for input query
   const [movies, setMovies] = useState([]); // State for movie results
   console.log(movies);
@@ -65,4 +65,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default Home;
