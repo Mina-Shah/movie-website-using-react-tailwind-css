@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function TopRated() {
+ 
+  const navigate = useNavigate();
   const [topRatedMovies, setTopRatedMovies] = useState([]);
 
   const getMovie = () => {
@@ -17,22 +20,38 @@ function TopRated() {
 
   console.log(topRatedMovies);
 
+
   return (
-    <section>
-      <h1 className="text-center mt-6 font-semibold text-lime-600 text-2xl md:text-4xl md:mt-8 lg:text-5xl lg:mt-10">
-        Top Rated
-      </h1>
-      <div className="">
-        <div className="grid grid-cols-2 gap-8 mx-20 my-8 md:grid-cols-4 lg:grid-cols-6 lg:mx-44 lg:mt-14 md:mx-20">
-          {topRatedMovies.map((TopRated) => (
-            <img
-            className="h- border border-white rounded-xl"
-              src={`https://image.tmdb.org/t/p/w500${TopRated.poster_path}`}
-            />
-          ))}
+    <>
+      <section>
+        <div>
+          <h1 className="text-center mt-6 font-semibold text-lime-600 text-2xl md:text-4xl md:mt-8 lg:text-5xl lg:mt-10">
+            Top Rated
+          </h1>
+
+          <div className="grid grid-cols-2 gap-8 mx-20 my-8 md:grid-cols-4 lg:grid-cols-6 lg:mx-44 lg:mt-14 md:mx-20">
+            {topRatedMovies.map((movie) => (
+              <div
+                key={movie.id}
+                onClick={() => {
+                  console.log(`Navigating`);
+                  navigate(`/movie/${movie.id}`)
+                }}
+              >
+                <img
+                  className="rounded duration-500 hover:scale-125"
+                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                  alt={movie.title}
+                />
+                <h3 className="bg-lime-800 text-center">
+                  {movie.vote_average}
+                </h3>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 

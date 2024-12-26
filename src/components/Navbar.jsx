@@ -1,10 +1,13 @@
 import { Eye } from "lucide-react";
 import { Menu, X } from "lucide-react";
-import { useState} from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { Outlet } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate(); // Initialize useNavigate
+
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleNavbar = () => {
@@ -24,59 +27,56 @@ const Navbar = () => {
         <div>
           <div className="lg:hidden ml-48 md:ml-96  ">
             <button onClick={toggleNavbar}>
-            {menuOpen ? <X /> : <Menu size={28}/>}
+              {menuOpen ? <X /> : <Menu size={28} />}
             </button>
           </div>
           {menuOpen && (
             <div className="lg:hidden fixed right-0 z-20 bg-zinc-900 w-full p-6 flex flex-col justify-center items-center ">
               <ul className=" space-y-2 text-white ">
                 <li className=" hover:text-lime-400">
-                  <Link to="/home">Home</Link>
-                </li>
-                <li className="hover:text-lime-400">
-                  <Link to="/movies">Movies</Link>
+                  <NavLink to="/home">Home</NavLink>
                 </li>
                 <li className=" hover:text-lime-400">
-                  <Link to="/toprated">Top Rated</Link>
+                  <NavLink to="/toprated">Top Rated</NavLink>
                 </li>
                 <li className=" hover:text-lime-400">
-                  <Link to="/popular">Popular</Link>
+                  <NavLink to="/popular">Popular</NavLink>
                 </li>
                 <li className="hover:text-lime-400">
-                  <Link to="/upcoming">Upcoming</Link>
+                  <NavLink to="/upcoming">Upcoming</NavLink>
+                </li>
+                <li className="hover:text-lime-400">
+                  <NavLink to="/signin">Sign In</NavLink>
                 </li>
               </ul>
             </div>
           )}
         </div>
-     
-       <div className=""> 
-       <ul className="hidden lg:justify-center lg:items-center lg:flex lg:gap-9 lg:text-xl">
-        <li className="lg:hover:underline">
-          <Link to="/home" >Home</Link>
-            </li>
-        <li className="lg:hover:underline">
-          <Link to="/movies" >Movies</Link>
-            </li>
-          <li className="lg:hover:underline">
-            <Link to="/toprated">Top Rated</Link>
+
+        <div className="">
+          <ul className="hidden lg:justify-center lg:items-center lg:flex lg:gap-9 lg:text-xl">
+            <li className="lg:hover:underline">
+              <NavLink to="/home">Home</NavLink>
             </li>
             <li className="lg:hover:underline">
-            <Link to="/popular">Popular</Link>
+              <NavLink to="/toprated">Top Rated</NavLink>
             </li>
             <li className="lg:hover:underline">
-            <Link to="/upcoming">Upcoming</Link>
+              <NavLink to="/popular">Popular</NavLink>
             </li>
-        </ul>
-       </div>
+            <li className="lg:hover:underline">
+              <NavLink to="/upcoming">Upcoming</NavLink>
+            </li>
+          </ul>
+        </div>
 
-       <div className="hidden lg:flex lg:mr-10 items-center">
-  <button className="text-lg text-white border-2 border-lime-300 rounded px-3 py-1 hover:text-lime-600 hover:bg-white transition-all duration-300">
-    Sign In
-  </button>
-</div>
-
-      
+        <div className="hidden lg:flex lg:mr-10 items-center">
+          <button className="text-lg text-white border-2 border-lime-300 rounded px-3 py-1 hover:text-lime-600 hover:bg-white transition-all duration-300"
+          onClick={() => navigate('/signin')} 
+          >
+            Sign In
+          </button>
+        </div>
       </nav>
       <Outlet />
     </>

@@ -1,8 +1,16 @@
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 const NoPage = () => {
+    const navigate = useNavigate();
     return (
       <>
-      <h1 className="text-lg justify-center items-center">404 Error</h1>
-      <button className="p-2 justify-center items-center"> Back To Home</button>  
+      <div className="pt-40 flex justify-center items-center">
+      <h1 className="text-2xl p-3">404 Error</h1>
+      <button onClick={() => navigate('/home')} 
+        className="text-2xl hover:text-blue-800"
+        >Go back to Home</button>
+      </div>
       </>
     
     )
