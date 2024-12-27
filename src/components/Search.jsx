@@ -2,12 +2,12 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Search() {
-  const [query, setQuery] = useState(""); // For user input
-  const [searchResults, setSearchResults] = useState([]); // For API results
+  const [query, setQuery] = useState(""); 
+  const [searchResults, setSearchResults] = useState([]); 
   const navigate = useNavigate();
 
   const handleSearch = () => {
-    if (!query.trim()) return; // Prevent empty searches
+    if (!query.trim()) return; 
     fetch(
       `https://api.themoviedb.org/3/search/movie?api_key=df3244313a3638b528b22372584be50c&query=${query}`
     )
@@ -42,7 +42,7 @@ function Search() {
             <div
               key={movie.id}
               className="bg-gray-900 p-4 rounded-lg shadow hover:shadow-lg cursor-pointer transition-shadow flex items-start"
-              onClick={() => navigate(`/movie/${movie.id}`)} // Navigate to movie details
+              onClick={() => navigate(`/movie/${movie.id}`)} 
             >
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

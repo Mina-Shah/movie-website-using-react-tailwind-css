@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -8,16 +10,15 @@ const SignIn = () => {
   const handleSignIn = (e) => {
     e.preventDefault();
 
-    // Basic validation
     if (!email || !password) {
       setError("Both fields are required.");
       return;
     }
 
-    // Add your authentication logic here
     console.log("Email:", email);
     console.log("Password:", password);
     setError("");
+    navigate("/home");
   };
 
   return (
@@ -63,7 +64,7 @@ const SignIn = () => {
           <button
             type="submit"
             className="w-full bg-lime-600 text-white py-2 rounded hover:bg-lime-700 transition-colors"
-          >
+         >
             Sign In
           </button>
         </form>

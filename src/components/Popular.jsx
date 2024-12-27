@@ -39,7 +39,7 @@ function Popular() {
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt={movie.title}
             />
-            <h3 className="bg-lime-800 text-center">{movie.vote_average}</h3>
+            <h3 className="bg-lime-800 text-center">☆ {movie.vote_average}</h3>
           </div>
         ))}
       </div>

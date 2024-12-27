@@ -6,7 +6,7 @@ import { Outlet } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate(); 
 
   const [menuOpen, setMenuOpen] = useState(false);
 

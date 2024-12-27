@@ -44,7 +44,7 @@ function TopRated() {
                   alt={movie.title}
                 />
                 <h3 className="bg-lime-800 text-center">
-                  {movie.vote_average}
+                ☆ {movie.vote_average}
                 </h3>
               </div>
             ))}
