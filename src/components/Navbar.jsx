@@ -1,7 +1,7 @@
 import { Eye } from "lucide-react";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 

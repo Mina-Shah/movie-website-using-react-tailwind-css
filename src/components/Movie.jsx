@@ -22,34 +22,33 @@ const Movie = () => {
 
   return (
     <>
-       <div className="p-6 text-gray-400">
-      <div className="flex flex-col md:flex-row items-center">
-        <img
-          src={
-            movieDetails.poster_path
-              ? `https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`
-              : "https://via.placeholder.com/500x750?text=No+Image"
-          }
-          alt={`Poster of ${movieDetails.title}`}
-          className="h-96 max-w-full mb-6 md:mb-0 md:mr-6"
-        />
-        <div className="md:ml-4">
-          <h1 className="text-2xl font-bold mb-4">{movieDetails.title}</h1>
-          <p className="mb-2">
-            <span className="font-semibold">☆ Rating:</span>{" "}
-            {movieDetails.vote_average || "N/A"}
-          </p>
-          <p className="mb-2">
-            <span className="font-semibold">Release Date:</span>{" "}
-            {movieDetails.release_date || "N/A"}
-          </p>
-          <p>
-            <span className="font-semibold">Overview:</span>{" "}
-            {movieDetails.overview || "No overview available."}
-          </p>
+      <div className="p-5 text-gray-400">
+        <div className="md:flex-row items-center">
+          <iframe
+            src={`https://vidsrc.to/embed/movie/${id}`}
+            allow="autoplay; fullscreen"
+            allowfullscreen="yes"
+            frameborder="no"
+            scrolling="no"
+            className="aspect-video w-full overflow-hidden"
+          ></iframe>
+          <div className="md:ml-4">
+            <h1 className="text-2xl font-bold mb-2 mt-4">{movieDetails.title}</h1>
+            <p className="mb-2">
+              <span className="font-semibold">☆ Rating:</span>{" "}
+              {movieDetails.vote_average || "N/A"}
+            </p>
+            <p className="mb-2">
+              <span className="font-semibold">Release Date:</span>{" "}
+              {movieDetails.release_date || "N/A"}
+            </p>
+            <p>
+              <span className="font-semibold">Overview:</span>{" "}
+              {movieDetails.overview || "No overview available."}
+            </p>
+          </div>
         </div>
       </div>
-    </div>
     </>
   );
 };

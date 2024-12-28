@@ -38,7 +38,7 @@ const Home = () => {
           <h1 className="text-white text-xl md:text-4xl lg:text-6xl">
             Millions of movies. Explore now.
           </h1>
-
+          
           <div className="mt-4 flex justify-center items-center gap-4">
             <input
               type="text"
